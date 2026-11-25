@@ -1,0 +1,9 @@
+# Fichiers de référence locaux à la racine (déjà intégrés dans assets/)
+/ancien cv.png
+/Fita_photo.jpg
+/CV_Rajosvah_Manohisoa_ATS.docx
+
+# Système et éditeurs
+.DS_Store
+Thumbs.db
+.vscode/
