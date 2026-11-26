@@ -39,35 +39,6 @@ document.addEventListener('DOMContentLoaded', () => {
   nav?.addEventListener('click', (event) => { if (event.target.closest('a')) closeMenu(); });
   document.addEventListener('keydown', (event) => { if (event.key === 'Escape') closeMenu(); });
 
-  const cvDropdown = document.querySelector('#cv-dropdown');
-  const cvDropdownBtn = document.querySelector('#cv-dropdown-btn');
-  if (cvDropdown && cvDropdownBtn) {
-    cvDropdownBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      const isOpen = cvDropdown.classList.toggle('open');
-      cvDropdownBtn.setAttribute('aria-expanded', String(isOpen));
-    });
-    cvDropdown.querySelectorAll('.dropdown-item').forEach((item) => {
-      item.addEventListener('click', () => {
-        cvDropdown.classList.remove('open');
-        cvDropdownBtn.setAttribute('aria-expanded', 'false');
-      });
-    });
-    document.addEventListener('click', (e) => {
-      if (!cvDropdown.contains(e.target)) {
-        cvDropdown.classList.remove('open');
-        cvDropdownBtn.setAttribute('aria-expanded', 'false');
-      }
-    });
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && cvDropdown.classList.contains('open')) {
-        cvDropdown.classList.remove('open');
-        cvDropdownBtn.setAttribute('aria-expanded', 'false');
-        cvDropdownBtn.focus();
-      }
-    });
-  }
-
   const revealElements = document.querySelectorAll('.reveal');
   if (reducedMotion || !('IntersectionObserver' in window)) {
     revealElements.forEach((element) => element.classList.add('visible'));
